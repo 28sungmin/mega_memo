@@ -1,0 +1,48 @@
+header {
+    height: 100px;
+}
+.contents {
+    min-height: 500px;
+}
+footer {
+    height: 100px;
+}
+
+/* sign-in */
+.contents2 {
+  width: 1128px;
+  height: 738px;
+  margin: 0 auto;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.sign-in-prop {
+  margin-top: 84px;
+}
+.sign-in-prop label {
+  font-size: 25px;
+}
+.sign-in-prop input {
+  width: 500px;
+  height: 50px;
+  border-radius: 12px;
+}
+.sign-in-btn,
+.to-sign-up-btn {
+  width: 185px;
+  height: 45px;
+  font-size: 30px;
+  border-radius: 20px;
+}
+.sign-in-btn {
+  background-color: #c8dcff;
+}
+.to-sign-up-a {
+  text-decoration: none;
+}
+.to-sign-up-a:hover {
+    text-decoration: none;
+}
+.to-sign-up-btn {
+  background-color: #ffe4c8;
+}
