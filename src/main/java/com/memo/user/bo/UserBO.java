@@ -18,6 +18,17 @@ public class UserBO {
         return userRepository.findByLoginId(loginId).orElse(null);
     }
 
+    // i: loginId, password
+    // o: UserEntity(단건) or null
+    public UserEntity getUserEntityByLoginIdPassword(String loginId, String password) {
+        // 비밀번호 해싱
+        String hashedPassword = EncryptUtils.md5(password);
+
+        // DB 조회
+        return userRepository.findByLoginIdAndPassword(loginId, hashedPassword).orElse(null);
+
+    }
+
     // i: 4개 파라미터
     // o: UserEntity -> boolean(true: 성공)
     public boolean addUser(String loginId, String password, String name, String email) {

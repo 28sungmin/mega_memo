@@ -8,9 +8,15 @@
           <h1>MEMO 게시판</h1>
         </div>
         <!-- 로그인 정보 영역 -->
-        <div>
-          <span>00님 안녕하세요</span>
+        <!-- 로그인 시 -->
+        <div th:if="${session.userName != null}">
+          <span th:text="|${session.userName}님 안녕하세요|"></span>
           <a href="/user/sign-out">로그아웃</a>
+        </div>
+
+        <!-- 비로그인 시 -->
+        <div th:unless="${session.userName != null}">
+          <a href="/user/sign-in-view">로그인</a>
         </div>
       </div>
     </header>
