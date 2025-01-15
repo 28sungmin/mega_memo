@@ -21,13 +21,15 @@
             `post`
         WHERE
             `userId` = #{userId}
+        ORDER BY `id` DESC
     </select>
-    <insert id="insertPostByUserIdSubjectContent" parameterType="map">
+    <insert id="insertPost" parameterType="map">
         INSERT INTO `post`
         (
             `userId`,
             `subject`,
             `content`,
+            `imagePath`,
             `createdAt`,
             `updatedAt`
         )
@@ -36,6 +38,7 @@
             #{userId},
             #{subject},
             #{content},
+            #{imagePath},
             NOW(),
             NOW()
         )
