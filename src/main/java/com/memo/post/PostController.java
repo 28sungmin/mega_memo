@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -37,8 +38,28 @@ public class PostController {
         return "post/postList";
     }
 
+    /**
+     * 글쓰기 화면
+     * @return
+     */
     @GetMapping("/post-create-view")
     public String postCreateView() {
         return "post/postCreate";
+    }
+
+    @GetMapping("/post-detail-view")
+    public String postDetailView(
+            @RequestParam("postId") int postId,
+            Model model,
+            HttpSession session
+    ) {
+        // db select - userId로 검사도 하고, postId 가져오기
+        int userId = (int)session.getAttribute("userId");
+        Post post = postBO.getPostByPostIdUserId(postId, userId);
+
+        // model
+        model.addAttribute("post", post);
+
+        return "post/postDetail";
     }
 }
