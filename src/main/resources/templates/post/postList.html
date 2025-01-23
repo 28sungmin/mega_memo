@@ -21,7 +21,7 @@
                         <tr th:each="post : ${postList}">
                             <td th:text="${post.id}"></td>
                             <td>
-                                <a th:href="@{/post/post-detail-view(postId=${post.id}, test=test)}" th:text="${post.subject}"></a>
+                                <a th:href="@{/post/post-detail-view(postId=${post.id})}" th:text="${post.subject}"></a>
 <!--                                <a th:href="|/post/post-detail-view?postId=${post.id}|" th:text="${post.subject}"></a>-->
                             </td>
                             <td th:text="${post.createdAt}"></td>
