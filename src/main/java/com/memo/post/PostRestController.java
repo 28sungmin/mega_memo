@@ -88,15 +88,14 @@ public class PostRestController {
     @DeleteMapping("/delete")
     public Map<String, Object> delete(
             @RequestParam("postId") int postId,
-            @RequestParam(value = "file", required = false) MultipartFile file,
             HttpSession session
     ) {
-        // userId 가져오기
+        // userId 가져오기 => 로그인 안 된 사람은 못 오게하기 위해 int
         int userId = (int)session.getAttribute("userId");
 
         Map<String, Object> result = new HashMap<>();
         // DB delete
-        if (postBO.deletePostByPostIdUserId(postId, userId, file)) {
+        if (postBO.deletePostByPostIdUserId(postId, userId)) {
             result.put("code", 200);
             result.put("result", "성공");
         } else {

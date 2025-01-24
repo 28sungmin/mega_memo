@@ -110,20 +110,13 @@
                 let postId = $(this).data("post-id");
                 // alert(postId);
 
-                let formData = new FormData(); // form 태그가 생긴 것.
-                // 아래의 key는 form태그의 name과 같다고 보면 된다. -> request param명이 된다.
-                formData.append("postId", postId);
-                formData.append("file", $("#file")[0].files[0]);
 
                 // ajax
                 $.ajax({
                     // request
                     type:"delete",
                     url:"/post/delete",
-                    data:formData,
-                    processData:false, // 파일 업로드 시 필수 설정!!
-                    contentType:false, // 파일 업로드 시 필수 설정!!
-                    enctype:"multipart/form-data", // 이미지를 올릴 때 필수 설정!!
+                    data: {"postId": postId},
 
                     // response
                     success:function(data) {
