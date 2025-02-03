@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Collections;
 import java.util.List;
 
+// 이슈를 올리기위한 주석
 @Slf4j
 @RequiredArgsConstructor // DI의 방식, 생성자 주입 방식 => 아래의 생성자를 만드는 과정을 해주는 어노테이션
 @Service
